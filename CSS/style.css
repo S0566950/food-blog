@@ -1,0 +1,572 @@
+/*  Das Reset der CSS-Dateien ist sicherlich eine sinnvolle Idee,
+    die wir, in Grundzüge, auch so in unsere Main-CSS-Datei implementiert haben,
+    doch gerade bei Webseiten, deren Darstellung zum Beispiel abhängig vom Browser
+    oder Endgerät sein soll ist dies vielleicht nicht von nöten. Jedoch glauben wir,
+    das man eher einen CSS Reset macht, als das man es unterlässt,
+    da man wie in meinem Beispiel angegeben, die Device-Spezifität wohl eher über Media Queries ermittelt,
+    als das man es quasi dem Zufall überlässt.*/
+
+/***************************************************************** DEFAULT DATA *****************************************************************/
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background: rgb(200, 198, 255);
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+/***************************************************************** MAIN *****************************************************************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    font-size: 2.5em;
+    text-align: center;
+    background-color: rgb(200, 198, 255);
+}
+h4 {
+    font-size: 1.2em;
+    margin: 0 auto;
+}
+
+li:nth-child(1) {
+    border-right: thin solid white;
+}
+
+li:nth-child(2) {
+    border-right: thin solid white;
+}
+
+li:nth-child(3) {
+    border-right: thin solid white;
+}
+
+/***************************************************************** NAVIGATION *****************************************************************/
+
+ul {
+    display: flex;
+    width: auto;
+}
+/*WICHTIG HIER BIN ICH*/
+nav li {
+    display: inline-flex;
+    justify-content: center;
+    padding: 1em;
+    height: 1em;
+    align-items: center;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+nav a:hover {
+    opacity: 0.5;
+}
+
+nav li::before {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 0;
+    background: rgb(255, 216, 0);
+    position: absolute;
+    top: -1em;
+    z-index: 10;
+
+    transition: 850ms;
+}
+
+nav li:hover::before {
+    width: 95%;
+}
+
+nav a:active {
+    background-color: white;
+    color: rgb(5, 29, 148);
+}
+
+/***************************************************************** HEADER *****************************************************************/
+
+header {
+    background-color: rgba(111, 134, 255, 0.98);
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    box-shadow: 0 0.2em 1em rgba(87, 106, 206, 0.69);
+    z-index: 10;
+}
+
+header img {
+    width: auto;
+    height: 2em;
+}
+
+/***************************************************************** LANDING PAGE *****************************************************************/
+
+#landingpage {
+    width: 100%;
+    padding-top: 15em;
+    padding-bottom: 4em;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0), rgb(166, 179, 250));
+}
+
+#landingpage p {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+/*** CONTENT ***/
+
+#content {
+    padding-top: 3em;
+    text-decoration: underline;
+    grid-column: 1/5;
+}
+
+/* POLAROID */
+
+.polaroid {
+    background: white;
+    box-shadow: 0 0.1em 1em rgba(87, 106, 206, 0.69);
+    position: relative;
+}
+
+.polaroid img:hover {
+    opacity: 0.9;
+    z-index: 1;
+    transition: 800ms;
+}
+
+.polaroid::before {
+    content: '';
+    display: block;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    z-index: 10;
+    transition: 800ms;
+}
+
+.polaroid:hover::before {
+    background: rgb(255, 216, 0);
+    height: 1em;
+}
+
+.polaroid img {
+    transition: 500ms;
+}
+
+.polaroid p {
+    padding: 0.5em;
+}
+
+.polaroid h4 {
+    padding: 0.5em;
+}
+
+.polaroid p:last-of-type {
+    padding-bottom: 1.5em;
+}
+
+/***************************************************************** MAIN GRID /*****************************************************************/
+
+main {
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    background: rgb(200, 198, 255);
+}
+
+/* SECTION CONTENT TAGS*/
+
+section {
+    width: 100%;
+}
+
+section > img {
+    width: 100%;
+}
+
+#empf_content {
+    width: auto;
+}
+
+#empf_content h2 {
+    margin-top: 5em;
+    width: 100%;
+    font-size: 2em;
+    text-align: center;
+}
+
+#empf_content > section {
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+#empf_content > section > img {
+    border: 0;
+    width: 100%;
+}
+
+#empf_content > section > p {
+    padding-bottom: 1em;
+}
+
+#empf_content > section > h5 {
+    font-size: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+hr {
+    background: white;
+    padding: 0.05em;
+    margin: 1em auto;
+    width: 20%;
+}
+
+hr:last-of-type {
+    width: 100%
+}
+
+#aboutus_content {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 2fr 1fr 0.5fr;
+}
+
+#aboutus_content h3:first-of-type {
+    padding-top: 1em;
+}
+
+#aboutus_content article {
+    grid-column: 2/5;
+}
+
+#aboutus_content h2 {
+    grid-column: 2/5;
+}
+
+#aboutus_content h3 {
+    grid-column: 2/5;
+}
+
+#aboutus_content article:first-of-type {
+    margin-top: 10em;
+}
+
+#aboutus_content article p {
+    text-align: justify;
+    padding: 1em 1em 1em 0;
+    grid-column: 2/3;
+}
+
+#aboutus_content article p:first-of-type {
+    margin: 2em 0 1em 0;
+}
+
+#aboutus_content section {
+    grid-column: 2/5;
+}
+
+#aboutus_content section p {
+    width: 90%;
+    text-align: justify;
+    padding: 0.5em 1em 1em 0;
+}
+
+#aboutus_content .polaroid {
+    width: 100%;
+    grid-column: 1/6;
+    text-align: center;
+}
+
+#aboutus_content .polaroid p {
+    margin: 0 auto;
+}
+
+#aboutus_content .polaroid:last-of-type {
+    margin: 0 auto;
+}
+
+#aboutus_content h3:last-of-type {
+    margin-top: 2em;
+}
+
+#aboutus_content form {
+    text-align: center;
+    display: grid;
+    align-items: center;
+    grid-column: 1/6;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+}
+
+#aboutus_content input {
+    width: 20em;
+    padding: 0.2em;
+    margin: 0.2em;
+    text-align: center;
+    border: thin solid rgb(192, 192, 192);
+}
+#aboutus_content input:nth-last-of-type(2):hover {
+    background-color: rgb(250, 133, 133);
+    color: white;
+    font-weight: bold;
+        transition: 200ms;
+}
+
+#aboutus_content input:last-of-type {
+    background-color: rgb(200, 198, 255);
+    color: white;
+    font-weight: bold;
+    padding: 0.8em;
+}
+
+#aboutus_content input:last-of-type:hover {
+    opacity: 0.5;
+    transition: 500ms;
+    background: rgb(0, 160, 0);
+    color: white;
+}
+
+#aboutus_content textarea {
+    padding: 0.2em;
+    margin: 0.2em;
+    border: thin solid rgb(192, 192, 192);
+    height: 10em
+}
+
+#game_content {
+    grid-column: 1/7;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+#game_content h2 {
+    grid-row: 2/9;
+    grid-column: 2/6;
+    text-align: center;
+}
+
+form {
+    background: white;
+    display: grid;
+    text-align: center;
+    padding: 2em;
+    margin-bottom: 2em;
+}
+
+form > select {
+    border: thin solid rgb(128, 128, 128);
+    margin-bottom: 2em;
+    margin-left: 1em
+}
+
+fieldset {
+    padding-top: 0.5em;
+    padding-bottom: 2em;
+    text-align: center;
+}
+
+input[type=radio] {
+    display:block;
+    position: relative;
+    left: 49%;
+    margin: 0.5em;
+}
+
+input:last-of-type {
+    margin-top: 0.5em;
+    background-color: rgb(200, 198, 255);
+    color: white;
+    font-weight: bold;
+    padding: 0.8em;
+}
+
+#wdform1 {}
+
+/***************************************************************** FOOTER *****************************************************************/
+
+footer {
+    width: 100%;
+    background: #464172;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 1em;
+}
+
+footer h5 {
+    grid-column: 1fr;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+}
+
+/***************************************************************** Media Queries  /*****************************************************************
+
+/*style.css als grund-stylesheet, ergänzend gibt es die empfehl.css und die styleAboutUs.css, vereinzelt mit media queries*/
+
+@media (max-width:480px) {
+    /* NAVIGATION */
+    body {
+        font-size: 10px;
+    }
+    nav {
+        padding-top: 2em;
+    }
+    nav a {
+        font-size: 1.5em;
+        margin-bottom: 0.5em;
+    }
+    li {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 481px) and (max-width:720px) {
+    body {
+        font-size: 12px;
+    }
+    header {
+        height: auto;
+    }
+    nav {
+        padding-top: 2em;
+    }
+    nav a {
+        font-size: 1.5em;
+    }
+    li {
+        width: 100%;
+    }
+}
+
+@media (min-width:721px) and (max-width:1366px) {
+    body {
+        font-size: 20px;
+    }
+    nav {
+        padding-top: 1em;
+    }
+    li {
+        width: 100%;
+    }
+}
+
+/*  
+
+    Das GRID hier (@media > im body) ist mega kacke platziert. Wenn man neue Seiten einfügen möchte, so wird dieser das Grid aufgezwungen! 
+    Der Effekt ist auch nicht wirklich relevant. Das könnte man anders besser lösen.
+
+*/
+
+@media (min-width: 1367px) {
+    body {
+        font-size: 18px;
+        display: grid;
+        grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr 0.5fr;
+    }
+    #landingpage {
+        grid-column: 1/7;
+    }
+    #content {
+        padding-bottom: 1em;
+        grid-column: 1/7;
+    }
+    header {
+        display: flex;
+    }
+    header img {
+        position: absolute;
+        left: 2em;
+        top: 1em;
+    }
+    nav {
+        width: 50%;
+    }
+    li {
+        width: 100%;
+    }
+    #index_main {
+        grid-column: 2/6;
+        margin-bottom: 2em;
+    }
+    .grid-div {
+        display: inline-grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1em;
+    }
+    #empf_content {
+        display: inline-grid;
+        grid-column: 2/6;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    #empf_content h2,
+    h4,
+    hr {
+        grid-column: 1/4;
+    }
+    #empf_content form {
+        grid-column: 1/4;
+    }
+    #empf_content section {
+        grid-column: 1/4;
+    }
+    #aboutus_content {
+        grid-column: 1/7;
+        grid-template-columns: repeat(6, 1fr);
+    }
+    #aboutus_content .polaroid:first-of-type {
+        grid-column: 2/4;
+    }
+    #aboutus_content .polaroid:last-of-type {
+        grid-column: 4/6;
+    }
+    #aboutus_content h3 {
+        grid-column: 1/7;
+    }
+    #aboutus_content form {
+        grid-column: 1/7;
+    }
+    #aboutus_content article {
+        grid-column: 2/6;
+    }
+    footer {
+        grid-column: 1/7;
+    }
+    #empf_content section p a {
+        color: rgb(5, 29, 148);
+    }
+}
